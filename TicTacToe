@@ -51,7 +51,7 @@ class TicTacToe
         }
         else
         {
-            Console.WriteLine("Invalid move. Please choose an empty spot.");
+            Console.WriteLine("Invalid move.");
         }
     }
 }
