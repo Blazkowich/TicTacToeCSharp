@@ -1,0 +1,72 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        TicTacToe game = new TicTacToe();
+
+        BoardViewer.DisplayBoard(game.board);
+        Console.WriteLine();
+
+        game.Replace(5, 'X');
+        BoardViewer.DisplayBoard(game.board);
+
+        game.Replace(1, 'O');
+        Console.WriteLine();
+
+        BoardViewer.DisplayBoard(game.board);
+    }
+}
+
+class TicTacToe
+{
+    public char[,] board;
+
+    public TicTacToe()
+    {
+        board = new char[3, 3];
+        InitialiseBoard();
+    }
+
+    public void InitialiseBoard()
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                board[row, col] = '-';
+            }
+        }
+    }
+
+    public void Replace(int number, char symbol)
+    {
+        int row = (number - 1) / 3;
+        int col = (number - 1) % 3;
+
+        if (board[row, col] == '-')
+        {
+            board[row, col] = symbol;
+        }
+        else
+        {
+            Console.WriteLine("Invalid move. Please choose an empty spot.");
+        }
+    }
+}
+
+class BoardViewer
+{
+    public static void DisplayBoard(char[,] board)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                Console.Write(board[row, col] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
