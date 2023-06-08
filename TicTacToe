@@ -68,5 +68,3 @@ class BoardViewer
         Console.WriteLine();
     }
 }
-
-
