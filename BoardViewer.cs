@@ -3,17 +3,19 @@ namespace BoardViewerNameSpace
 {
     class BoardViewer
     {
-        public static void DisplayBoard(char[,] board)
+        public static string DisplayBoard(char[,] board)
         {
+            string formattedBoard = "";
+
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    Console.Write(board[row, col] + " ");
+                    formattedBoard += board[row, col] + " ";
                 }
-                Console.WriteLine();
+                formattedBoard += Environment.NewLine;
             }
-            Console.WriteLine();
+            return formattedBoard;
         }
     }
 }
