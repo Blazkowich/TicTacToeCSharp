@@ -15,12 +15,12 @@ class Program
         {
             Console.WriteLine("Please Enter Number Between 1 - 9:");
             Console.WriteLine();
-            BoardViewer.DisplayBoard(game.board);
+            Console.WriteLine(BoardViewer.DisplayBoard(game.board));
 
             try
             {
                 int inp = int.Parse(Console.ReadLine());
-                game.Replace(inp);
+                Console.WriteLine(game.Replace(inp));
                 c++;
             }
             catch (FormatException)
