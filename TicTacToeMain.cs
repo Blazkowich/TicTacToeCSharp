@@ -23,7 +23,7 @@ namespace TicTacToeMain
             }
         }
 
-        public void Replace(int number)
+        public string Replace(int number)
         {
             if (number > 0 && number < 10)
             {
@@ -35,17 +35,17 @@ namespace TicTacToeMain
                 {
                     board[row, col] = currentPlayer;
                     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
-                    Console.WriteLine();
-                    Console.WriteLine($"It's Time For - {currentPlayer}");
+                    
+                    return $"It's Time For - {currentPlayer}";
                 }
                 else
                 {
-                    Console.WriteLine("Invalid move.");
+                    return "Invalid move.";
                 }
             }
             else
             {
-                Console.WriteLine("Number Less than 1 or More than 9");
+                return "Number Less than 1 or More than 9";
             }
         }
 
@@ -67,16 +67,19 @@ namespace TicTacToeMain
                     return true;
                 }
             }
+
             if (board[0, 0] != '-' && board[0, 0] == board[1, 1]
                 && board[1, 1] == board[2, 2])
             {
                 return true;
             }
+
             if (board[0, 2] != '-' && board[0, 2] == board[1, 1]
                 && board[1, 1] == board[2, 0])
             {
                 return true;
             }
+
             return false;
         }   
     }
